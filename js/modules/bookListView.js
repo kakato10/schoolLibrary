@@ -4,22 +4,27 @@
 var fs = require("fs");
 var ejs = require("ejs");
 var Book = require("./book.js");
+var DataManager = require("./dataManager").getInstance();
+var elementSelector = "#tab-books";
 
 var bookListView = (function () {
     var view;
 
     function createInstance() {
-        return {};
-    }
-
-    function render() {
+        return {
+            render: function () {
+                var books = DataManager.getBooks();
+                books.forEach(function (book) {
+                    book.render(elementSelector);
+                })
+            }
+        };
     }
 
     return {
-        getInstance: function (type) {
+        getInstance: function () {
             if (!view) {
                 view = createInstance();
-                render();
             }
             return view;
         }

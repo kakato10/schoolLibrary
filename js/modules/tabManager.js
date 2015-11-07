@@ -4,21 +4,28 @@
 var fs = require("fs");
 var ejs = require("ejs");
 var Book = require("./book.js");
+var BookListView = require("./bookListView");
 
 var TabManager = (function () {
     var manager;
     var tabs = {
         books: {
-            label: "books",
-            listView: "booksList"
+            label: "Books",
+            listView: BookListView.getInstance()
         },
         students: {
-            label: "students",
-            listView: "studentsList"
+            label: "Students",
+            listView: {
+                render : function () {
+                }
+            }
         },
         teachers: {
-            label: "teachers",
-            listView: "teachersList"
+            label: "Teachers",
+            listView: {
+                render : function () {
+                }
+            }
         }
     };
 
@@ -33,12 +40,13 @@ var TabManager = (function () {
             tabs: tabs
         });
         $(window.document.body).append(html);
+
+        //initialize tabs
         $("#tabs").tabs({
             active: 0,
             activate: function (event, ui) {
-                var containerId = $(".ui-state-active a").attr("href");
-                var book = new Book(containerId, "Svetlin", "Nakov");
-                book.render(containerId);
+                var currentTab = $(".ui-state-active a").data("tab");
+                tabs[currentTab].listView.render();
             }
         });
     }

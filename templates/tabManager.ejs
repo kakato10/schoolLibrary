@@ -4,7 +4,7 @@
             var label = tabs[key].label
         %>
         <li>
-            <a href="#tab-<%= label %>" data-tabIndex="<%= label %>" >
+            <a href="#tab-<%= key %>" data-tab="<%= key %>">
                 <%= label %>
             </a>
         </li>
@@ -13,8 +13,7 @@
     <% for (var key in tabs) {
         var label = tabs[key].label
     %>
-    <div id="tab-<%= label %>">
-        <%= label %>
+    <div id="tab-<%= key %>">
     </div>
     <% } %>
 </div>
