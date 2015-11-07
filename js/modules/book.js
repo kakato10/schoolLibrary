@@ -1,3 +1,4 @@
+'use strict';
 /**
  * Created by kakato10 on 11/6/2015.
  */
@@ -7,41 +8,47 @@
 var ejs = require("ejs");
 var fs = require("fs");
 
-function Book(title, name, surname) {
-    this.title = function () {
-        return title;
+class Book {
+    constructor(title, name, surname) {
+        this._title = title;
+        this._name = name;
+        this._surname = surname;
+    }
+
+    get title() {
+        return this._title;
+    }
+
+    set title(newTitle) {
+        this._title = newTitle;
     };
 
-    this.setTitle = function (newTitle) {
-        title = newTitle;
+    get name() {
+        return this._name;
     };
 
-    this.name = function () {
-        return name;
+    set name(name) {
+        this._name = name;
     };
 
-    this.setName = function (newName) {
-        name = newName;
+    get surname() {
+        return this._surname;
     };
 
-    this.surname = function () {
-        return surname;
-    };
+    set surname(newSurname) {
+        this._surname = newSurname;
+    }
 
-    this.getSurname = function (newSurname) {
-        surname = newSurname;
+    render(parentIdentifier) {
+        var template = fs.readFileSync('./templates/book.ejs', 'utf-8');
+        var book = {
+            title: this.title,
+            name: this.name,
+            surname: this.surname
+        };
+        var html = ejs.render(template, book);
+        $(parentIdentifier).append(html);
     }
 }
-
-Book.prototype.render = function (parentIdentifier) {
-    var template = fs.readFileSync('./templates/book.ejs', 'utf-8');
-    var book = {
-        title: this.title(),
-        name: this.name(),
-        surname: this.surname()
-    };
-    var html = ejs.render(template, book);
-    $(parentIdentifier).append(html);
-};
 
 module.exports = Book;

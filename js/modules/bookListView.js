@@ -1,19 +1,19 @@
-/**
- * Created by kakato10 on 11/6/2015.
- */
-var fs = require("fs");
-var ejs = require("ejs");
-var Book = require("./book.js");
-var DataManager = require("./dataManager").getInstance();
-var elementSelector = "#tab-books";
+'use strict';
 
-var bookListView = (function () {
-    var view;
+let fs = require("fs");
+let ejs = require("ejs");
+let Book = require("./book.js");
+let DataManager = require("./dataManager").getInstance();
+let elementSelector = "#tab-books";
+
+let bookListView = (function () {
+    let view;
 
     function createInstance() {
         return {
             render: function () {
-                var books = DataManager.getBooks();
+                $(elementSelector).html("");
+                let books = DataManager.getBooks();
                 books.forEach(function (book) {
                     book.render(elementSelector);
                 })

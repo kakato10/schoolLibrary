@@ -3,6 +3,7 @@ logs
 *.log
 bower_components
 node_modules
+.idea
 
 # Runtime data
 pids
