@@ -1,0 +1,12 @@
+{
+  "main": "index.html",
+  "name": "example",
+  "version": "0.0.1",
+  "window": {
+  },
+  "dependencies": {
+    "node-webkit": "latest",
+    "mongoose": "latest",
+    "ejs": "latest"
+  }
+}

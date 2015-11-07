@@ -1,0 +1,20 @@
+<div id="tabs">
+    <ul>
+        <% for (var key in tabs) {
+            var label = tabs[key].label
+        %>
+        <li>
+            <a href="#tab-<%= label %>" data-tabIndex="<%= label %>" >
+                <%= label %>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+    <% for (var key in tabs) {
+        var label = tabs[key].label
+    %>
+    <div id="tab-<%= label %>">
+        <%= label %>
+    </div>
+    <% } %>
+</div>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>NodeWebkit Window Controls Example</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/dark-hive/jquery-ui.min.css">
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        global.window = window;
+        global.$ = $;
+        global.gui = require('nw.gui');
+    </script>
+</head>
+<body>
+
+<div>
+    <table>
+        <tr></tr>
+    </table>
+    <button id="add-book" data-toggle="modal" data-target="#add-book-modal">
+        <span class="glyphicon glyphicon-plus"></span>
+        New book
+    </button>
+</div>
+
+
+<div class="modal fade" id="add-book-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add new book</h4>
+            </div>
+            <div class="modal-body">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Title: </label>
+                        </td>
+                        <td>
+                            <input type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Author's first name:: </label>
+                        </td>
+                        <td>
+                            <input type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Author's family name: </label>
+                        </td>
+                        <td>
+                            <input type="text">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal">Close</button>
+                <button>Save changes</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script>
+    $( "#tabs" ).tabs();
+</script>
+</body>
+</html>
