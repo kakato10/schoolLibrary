@@ -9,10 +9,10 @@ var ejs = require("ejs");
 var fs = require("fs");
 
 class Book {
-    constructor(title, name, surname) {
+    constructor(title, authorsFirstName, authorsSurname) {
         this._title = title;
-        this._name = name;
-        this._surname = surname;
+        this._authorsName = authorsFirstName;
+        this._authorsSurname = authorsSurname;
     }
 
     get title() {
@@ -23,28 +23,28 @@ class Book {
         this._title = newTitle;
     };
 
-    get name() {
-        return this._name;
+    get authorsFirstName() {
+        return this._authorsName;
     };
 
-    set name(name) {
-        this._name = name;
+    set authorsFirstName(newFirstName) {
+        this._authorsName = newFirstName;
     };
 
-    get surname() {
-        return this._surname;
+    get authorsSurname() {
+        return this._authorsSurname;
     };
 
-    set surname(newSurname) {
-        this._surname = newSurname;
+    set authorsSurname(newSurname) {
+        this._authorsSurname = newSurname;
     }
 
     render(parentIdentifier) {
         var template = fs.readFileSync('./templates/book.ejs', 'utf-8');
         var book = {
             title: this.title,
-            name: this.name,
-            surname: this.surname
+            name: this.authorsFirstName,
+            surname: this.authorsSurname
         };
         var html = ejs.render(template, book);
         $(parentIdentifier).append(html);
