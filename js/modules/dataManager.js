@@ -1,5 +1,5 @@
 'use strict';
-let Book = require("./book.js");
+let Book = require("./books/book.js");
 let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 mongoose.connect( "mongodb://localhost/schoolLibrary" );
@@ -22,10 +22,10 @@ let DataManager = (function () {
         return {
             getBooks: function() {
                 return [
-                    new Book("360 градуса преди края", "Силвия", "Дончева"),
-                    new Book("Аз, детективът-нобелист", "Георги", "Спиров"),
-                    new Book("Атомният човек", "Любен", "Дилов"),
-                    new Book("Без сенки", "Атанас", "Наковски")
+                    new Book("360 градуса преди края", "Силвия", "Дончева", 123),
+                    new Book("Аз, детективът-нобелист", "Георги", "Спиров", 124),
+                    new Book("Атомният човек", "Любен", "Дилов", 125),
+                    new Book("Без сенки", "Атанас", "Наковски", 126)
                 ]
             }
         };

@@ -3,19 +3,16 @@
 let fs = require("fs");
 let ejs = require("ejs");
 let DataManager = require("./dataManager").getInstance();
-const ELEMENT_SELECTOR = "#tab-students";
 
-let bookListView = (function () {
+let studentListView = (function () {
     let view;
 
     function createInstance() {
         return {
-            render: function () {
-                //$(ELEMENT_SELECTOR).html("");
-                //let students = DataManager.getStudents();
-                //students.forEach(function (student) {
-                //    student.render(ELEMENT_SELECTOR);
-                //})
+            render: function (parentSelector) {
+                //let newBookTemplate = fs.readFileSync('./templates/bookForm.ejs', 'utf-8');
+                //let html = ejs.render(newBookTemplate);
+                //$(parentSelector).html(html);
             }
         };
     }
@@ -30,4 +27,4 @@ let bookListView = (function () {
     };
 })();
 
-module.exports = bookListView;
+module.exports = studentListView;

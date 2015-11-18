@@ -1,9 +1,9 @@
 'use strict';
 let fs = require("fs");
 let ejs = require("ejs");
-let Book = require("./book.js");
+let Book = require("./books/book.js");
 let Person = require("./person");
-let BookListView = require("./bookListView");
+let BookListView = require("./books/bookListView");
 let TabManager = (function () {
     let manager;
     let tabs = {

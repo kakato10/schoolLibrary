@@ -1,4 +1,4 @@
 $(document).ready(function () {
     var tab = require("./js/modules/tabManager.js").getInstance();
-    var Book = require("./js/modules/book.js");
+    var Book = require("./js/modules/books/book.js");
 });
