@@ -1,0 +1,40 @@
+.button {
+    cursor: pointer;
+}
+
+.copy {
+    color: #00b300;
+}
+
+.expired {
+    color: #cc0000;
+}
+
+.expiring {
+    color: #ff9900;
+}
+
+.active {
+    color: #39e600;
+}
+
+.date {
+    padding-right: 10px;
+}
+
+input {
+    margin: 6px;
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+input:focus,
+input.focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+}
+
+.item {
+    padding-bottom: 5px;
+    border-bottom: 1px solid;
+}

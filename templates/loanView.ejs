@@ -1,0 +1,9 @@
+<h3><%= student.toString() + " " + book.toString() + "(" + loan.copy + ")" %></h3>
+<p>
+    <span class="date"><b>Start date:</b> <%= loan.startDate %></span>
+    <span class="date"><b>End date: </b> <%= loan.endDate %></span>
+</p>
+<p><b>Status:</b><span class="status <%= status %>"><%= status %></span></p>
+<span class="glyphicon glyphicon-pencil button edit" id="<%= editButtonId %>" title="Edit"></span>
+<span class="glyphicon glyphicon-triangle-right button extend" id="<%= extendButtonId %>" title="Extend loan"></span>
+<span class="glyphicon glyphicon-hand-left button return" id="<%= returnBookButtonId %>" title="Return book"></span>

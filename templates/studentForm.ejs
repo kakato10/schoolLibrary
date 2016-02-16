@@ -1,0 +1,44 @@
+<table>
+    <tr>
+        <td>
+            <label>Name: </label>
+        </td>
+        <td>
+            <input id="<%= nameInputId %>" type="text" value="<%= student.name %>">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Surname: </label>
+        </td>
+        <td>
+            <input id="<%= surnameInputId %>" type="text" value="<%= student.surname %>">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Grade</label>
+        </td>
+        <td>
+            <input id="<%= gradeInputId %>" type="number" value="<%= student.grade %>">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Division</label>
+        </td>
+        <td>
+            <input id="<%= divisionInputId %>" type="text" value="<%= student.division %>">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Number in class:</label>
+        </td>
+        <td>
+            <input id="<%= numberInClassInputId %>" type="number" value="<%= student.numberInClass %>">
+        </td>
+    </tr>
+</table>
+<button id="<%= cancelButtonId %>">Cancel</button>
+<button id="<%= saveButtonId %>">Save changes</button>

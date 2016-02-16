@@ -1,36 +1,17 @@
 'use strict';
+const Book        = require("./book.js");
+const NewBookForm = require("./newBookForm");
+const DataManager = require("./../dataManager").getInstance();
+const ListView    = require("./../Generics/ListView");
 
-let fs = require("fs");
-let ejs = require("ejs");
-let Book = require("./book.js");
-let NewBookForm = require("./newBookForm");
-let DataManager = require("./../dataManager").getInstance();
-let elementSelector = "#tab-books";
-
-let bookListView = (function () {
-    let view;
-    function createInstance() {
-        return {
-            render: function () {
-                $(elementSelector).html("");
-                NewBookForm.getInstance().render(elementSelector);
-                let books = DataManager.getBooks();
-                books.forEach(function (book) {
-                    book.render(elementSelector);
-                })
-            }
-        };
+class BookListView extends ListView {
+    constructor() {
+        super();
+        this._identifier  = "#tab-books";
+        this._newItemForm = NewBookForm;
+        this._item        = Book;
+        this._getItems    = DataManager.getBooks;
     }
+}
 
-
-    return {
-        getInstance: function () {
-            if (!view) {
-                view = createInstance();
-            }
-            return view;
-        }
-    };
-})();
-
-module.exports = bookListView;
+module.exports = BookListView;

@@ -4,15 +4,15 @@
             <label>Title: </label>
         </td>
         <td>
-            <input id="book-title" type="text" value="<%= book.title %>">
+            <input id="<%= titleInputId %>" type="text" value="<%= book.title %>">
         </td>
     </tr>
     <tr>
         <td>
-            <label>Author's first name:: </label>
+            <label>Author's first name: </label>
         </td>
         <td>
-            <input id="authors-first-name" type="text" value="<%= book.authorsFirstName %>">
+            <input id="<%= authorsNameInputId %>" type="text" value="<%= book.authorsFirstName %>">
         </td>
     </tr>
     <tr>
@@ -20,9 +20,9 @@
             <label>Author's family name: </label>
         </td>
         <td>
-            <input id="authors-surname" type="text" value="<%= book.authorsSurname %>">
+            <input id="<%= authorsSurnameInputId %>" type="text" value="<%= book.authorsSurname %>">
         </td>
     </tr>
 </table>
-<button data-dismiss="modal">Close</button>
-<button id="save-book">Save changes</button>
+<button id="<%= cancelButtonId %>">Cancel</button>
+<button id="<%= saveButtonId %>">Save changes</button>

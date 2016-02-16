@@ -1,32 +1,26 @@
 'use strict';
-let fs = require("fs");
-let ejs = require("ejs");
-let Book = require("./books/book.js");
-let Person = require("./person");
-let BookListView = require("./books/bookListView");
-let TabManager = (function () {
+const fs              = require("fs");
+const ejs             = require("ejs");
+const Book            = require("./books/book.js");
+const Person          = require("./person/Person");
+const BookListView    = require("./books/bookListView");
+const StudentListView = require("./Student/studentListView");
+const LoansListView   = require("./Loans/LoanListView");
+
+const TabManager = (function () {
     let manager;
-    let tabs = {
-        books: {
-            label: "Books",
-            listView: BookListView.getInstance()
+    const tabs = {
+        books   : {
+            label   : "Books",
+            listView: new BookListView()
         },
         students: {
-            label: "Students",
-            listView: {
-                render : function () {
-                    let joro = new Person("Joro", "Batanov");
-                    joro.show();
-                }
-            }
+            label   : "Students",
+            listView: new StudentListView()
         },
-        teachers: {
-            label: "Teachers",
-            listView: {
-                render : function () {
-                    window.alert("Rendering Teachers");
-                }
-            }
+        loans   : {
+            label   : "Loans",
+            listView: new LoansListView()
         }
     };
 
@@ -42,19 +36,19 @@ let TabManager = (function () {
     }
 
     function render() {
-        let template = fs.readFileSync('./templates/tabManager.ejs', 'utf-8');
-        let html = ejs.render(template, {
+        const template = fs.readFileSync('./templates/tabManager.ejs', 'utf-8');
+        const html     = ejs.render(template, {
             tabs: tabs
         });
         $(window.document.body).append(html);
 
         //initialize tabs
         $("#tabs").tabs({
-            active: 0,
-            create: function (event, ui) {
+            active  : 0,
+            create  : function (event, ui) {
                 renderTabContent();
             },
-            activate: function(event, ui) {
+            activate: function (event, ui) {
                 renderTabContent();
             }
         });

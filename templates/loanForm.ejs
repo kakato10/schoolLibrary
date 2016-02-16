@@ -1,0 +1,53 @@
+<table>
+    <tr>
+        <td>
+            <label>Student: </label>
+        </td>
+
+        <td>
+            <select id="<%= studentInputId %>">
+                <% students.forEach(function(student){ debugger; %>
+                <option value="<%= student.id %>"
+                        <% if(loan.student && student.id.toString() == loan.student.toString()){ %>
+                        selected="selected"
+                        <% } %>
+                >
+                    <%= student.toString() %>
+                </option>
+                <% }); %>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Book: </label>
+        </td>
+        <td>
+            <select id="<%= bookCopyInputId %>">
+                <% books.forEach(function(book){
+                book.getUnloanedCopies(loans, loan.copy).forEach(function (copy) { console.log(copy); %>
+                <option value="<%= copy %>"
+                        <% if (copy === loan.copy) { %>
+                        selected="selected"
+                        <% } %>
+                >
+                    <%= book.toString() + "(" + copy + ")" %>
+                </option>
+                <%
+                });
+                });
+                %>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>End date: </label>
+        </td>
+        <td>
+            <input id="<%= endDateInputId %>" type="date" value="<%= loan.endDate %>" min="<% new Date() %>">
+        </td>
+    </tr>
+</table>
+<button id="<%= cancelButtonId %>">Cancel</button>
+<button id="<%= saveButtonId %>">Save changes</button>
